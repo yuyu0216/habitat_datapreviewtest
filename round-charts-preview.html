@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>結局圖表預覽 ─ 物種與棲地逐回合變化（5/25 資料）</title>
+<style>
+  /* ============ 基底 ============ */
+  :root{
+    --ink:#2c3338; --ink-soft:#5c6670; --line:#e3e0d8;
+    --paper:#faf7f0; --card:#ffffff; --accent:#3b7a57;
+    --warn:#c8553d; --good:#6b9e47;
+    /* 物種色 */
+    --sp-red:#C8553D; --sp-green:#6B9E47; --sp-yellow:#D9A441;
+    --sp-brown:#8B6B47; --sp-blue:#4A7BA6; --sp-purple:#8B5A9F;
+    /* 棲地色 */
+    --hb-wetland:#6B9E7F; --hb-forest:#4A7C59; --hb-urban:#8B92A8; --hb-pond:#5B7A99;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:24px 20px 80px;}
+
+  /* ============ 頁首 ============ */
+  .page-head{margin-bottom:8px;}
+  .page-head h1{font-size:28px; margin:0 0 6px; letter-spacing:.5px;}
+  .page-head .sub{color:var(--ink-soft); font-size:15px; margin:0;}
+  .src-note{
+    display:inline-block; margin-top:10px; font-size:13px; color:var(--ink-soft);
+    background:#fff; border:1px dashed var(--line); border-radius:8px; padding:4px 10px;
+  }
+
+  /* ============ 分頁切換 ============ */
+  .tabs{display:flex; gap:10px; margin:22px 0 10px;}
+  .tab{
+    flex:0 0 auto; border:2px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:10px 22px; border-radius:999px; font-size:16px; font-weight:700; cursor:pointer;
+    transition:.15s;
+  }
+  .tab:hover{border-color:var(--accent);}
+  .tab.is-active{background:var(--accent); border-color:var(--accent); color:#fff;}
+
+  /* ============ 區段 ============ */
+  .section{display:none;}
+  .section.is-active{display:block;}
+
+  /* ============ 卡片 ============ */
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:18px;
+    padding:22px 24px 26px; margin:18px 0; box-shadow:0 2px 10px rgba(60,50,30,.04);
+  }
+  .card__tag{
+    display:inline-block; font-size:12px; font-weight:800; letter-spacing:1px;
+    color:#fff; background:var(--accent); border-radius:6px; padding:2px 9px; margin-bottom:8px;
+  }
+  .card__tag--alt{background:#b07d3c;}
+  .card h2{font-size:21px; margin:4px 0 2px;}
+  .card__meta{font-size:13.5px; color:var(--ink-soft); margin:0 0 14px;}
+  .card__meta b{color:var(--accent);}
+  .insight{
+    background:#f3f8f3; border-left:4px solid var(--good); border-radius:8px;
+    padding:9px 14px; font-size:14px; margin:14px 0 0; color:#3c4a3c;
+  }
+  .insight--warn{background:#fbf1ee; border-left-color:var(--warn); color:#5c3a32;}
+  .insight b{font-weight:800;}
+
+  /* ============ 圖例 ============ */
+  .legend{display:flex; flex-wrap:wrap; gap:8px 16px; margin:0 0 14px;}
+  .legend__item{display:flex; align-items:center; gap:6px; font-size:13.5px; color:var(--ink-soft);}
+  .legend__dot{width:14px; height:14px; border-radius:4px; flex:0 0 auto;}
+
+  /* ============ SVG 圖 ============ */
+  .chart{width:100%; height:auto; display:block; overflow:visible;}
+  .chart text{font-family:inherit;}
+  .grid-line{stroke:var(--line); stroke-width:1;}
+  .axis-label{fill:#9aa1a8; font-size:12px;}
+  .round-label{fill:var(--ink-soft); font-size:13.5px; font-weight:700;}
+  .bar-val{fill:#fff; font-size:11px; font-weight:700;}
+  .bar-total{fill:var(--ink); font-size:13px; font-weight:800;}
+
+  /* ============ 人類事件時間軸 ============ */
+  .eventflow{display:flex; align-items:stretch; gap:0; flex-wrap:wrap; margin:6px 0 4px;}
+  .eventflow__step{
+    flex:1 1 0; min-width:150px; text-align:center; position:relative; padding:0 6px;
+  }
+  .eventflow__round{font-size:12px; color:var(--ink-soft); font-weight:700;}
+  .eventflow__icon{font-size:30px; line-height:1.1; margin:2px 0;}
+  .eventflow__name{font-size:14px; font-weight:800; color:var(--warn);}
+  .eventflow__desc{font-size:12px; color:var(--ink-soft); margin-top:2px;}
+  .eventflow__arrow{
+    position:absolute; right:-9px; top:34px; font-size:20px; color:#cbb9a0; z-index:2;
+  }
+  .eventflow__step:last-child .eventflow__arrow{display:none;}
+
+  /* ============ 熱力圖 ============ */
+  .heat{border-collapse:separate; border-spacing:6px; width:100%;}
+  .heat th{font-size:13px; color:var(--ink-soft); font-weight:700; padding:4px;}
+  .heat td{
+    text-align:center; border-radius:10px; padding:14px 6px; color:#fff;
+    font-weight:800; font-size:15px;
+  }
+  .heat .heat__row-h{text-align:left; color:var(--ink); background:none; font-weight:800; white-space:nowrap;}
+  .heat__sub{display:block; font-size:11px; font-weight:600; opacity:.9;}
+
+  /* ============ 小倍數網格 ============ */
+  .smallmult{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
+  .smallmult__cell h3{
+    font-size:15px; margin:0 0 6px; display:flex; align-items:center; gap:6px;
+  }
+  .smallmult__cap{font-size:12px; color:var(--ink-soft); font-weight:600;}
+
+  /* ============ 玩家選擇器 ============ */
+  .picker{
+    display:flex; align-items:center; gap:12px; margin:8px 0 4px; flex-wrap:wrap;
+    background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 16px;
+  }
+  .picker label{font-weight:800; font-size:15px;}
+  .picker select{
+    font-size:16px; padding:8px 14px; border-radius:10px; border:2px solid var(--line);
+    background:#fff; font-family:inherit; font-weight:700; color:var(--ink); cursor:pointer;
+  }
+  .picker__chip{
+    margin-left:auto; font-size:14px; font-weight:800; color:#fff;
+    padding:6px 14px; border-radius:999px;
+  }
+
+  /* ============ 故事時間軸 ============ */
+  .story{position:relative; margin:6px 0 0; padding-left:6px;}
+  .story__item{display:flex; gap:14px; padding:8px 0;}
+  .story__rail{display:flex; flex-direction:column; align-items:center; flex:0 0 44px;}
+  .story__node{
+    width:44px; height:44px; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; font-size:22px; color:#fff; font-weight:800; flex:0 0 auto;
+  }
+  .story__line{width:3px; flex:1 1 auto; background:var(--line); margin:2px 0; border-radius:2px; min-height:18px;}
+  .story__body{
+    flex:1 1 auto; background:#fbfaf6; border:1px solid var(--line); border-radius:14px;
+    padding:12px 16px;
+  }
+  .story__round{font-size:13px; color:var(--ink-soft); font-weight:700;}
+  .story__event{font-size:15px; font-weight:800; margin:2px 0 4px;}
+  .story__event .b-event{font-weight:700; color:var(--ink-soft); font-size:13px; margin-left:6px;}
+  .story__delta{font-size:15px; font-weight:800;}
+  .story__delta--up{color:var(--good);} .story__delta--down{color:var(--warn);}
+  .story__say{font-size:14px; color:#4a5258; margin-top:3px;}
+
+  /* ============ 比較折線小標 ============ */
+  .cmp-note{font-size:13.5px; color:var(--ink-soft); margin:2px 0 0;}
+
+  @media (max-width:720px){
+    .smallmult{grid-template-columns:1fr;}
+    .eventflow__step{min-width:120px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-head">
+    <h1>🐸 結局圖表預覽 ─ 物種與棲地，五回合怎麼變？</h1>
+    <p class="sub">用 5/25 場次的真實資料，做幾種「給小學生看」的回合結算圖表。先挑喜歡的版型，再決定放進系統。</p>
+    <span class="src-note">資料來源：habitat-export-2026-05-25 ｜ 12 位玩家 · 6 物種 · 4 棲地 · 開局＋5 回合 ｜ 此頁僅預覽，未改動任何系統程式</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab is-active" data-tab="teacher">👩‍🏫 老師端 ─ 全班總覽</button>
+    <button class="tab" data-tab="player">🙋 玩家端 ─ 我的故事</button>
+  </div>
+
+  <!-- ============ 老師端 ============ -->
+  <section class="section is-active" id="sec-teacher">
+
+    <div class="card" style="background:linear-gradient(180deg,#fffdf8,#fff);">
+      <p style="margin:0 0 6px; font-size:15px;">這場遊戲的大故事 👇</p>
+      <p style="margin:0; font-size:16px;">
+        前面幾回合，大家都拼命長大、把棲地塞滿；可是<b style="color:var(--warn)">第 5 回人類造成「生態崩潰」</b>，
+        幾乎<b>所有族群同時大幅減少</b>。這正是遊戲想說的：<b>真正的因，是人類的行為。</b>
+      </p>
+      <div id="eventflow"></div>
+    </div>
+
+    <div class="card">
+      <span class="card__tag">版型 A1</span>
+      <h2>🌍 全班生態系全景（物種堆疊長條）</h2>
+      <p class="card__meta">每一根＝該回合<b>全班所有生物總數</b>，由 6 個顏色族群疊起來。看「整體變多/變少」和「誰最多」最直覺。</p>
+      <div id="a1-legend" class="legend"></div>
+      <div id="a1"></div>
+      <p class="insight insight--warn">📉 重點：第 4 回堆到最高，第 5 回「生態崩潰」後整座塔明顯矮掉 ── 人類事件一發生，大家一起跌。</p>
+    </div>
+
+    <div class="card">
+      <span class="card__tag">版型 A2</span>
+      <h2>📈 六族群命運線（折線）</h2>
+      <p class="card__meta">每條線＝一個族群的總數。適合比較<b>「誰一直衝、誰被壓著、誰最後摔下來」</b>。</p>
+      <div id="a2-legend" class="legend"></div>
+      <div id="a2"></div>
+      <p class="insight">🟢 綠色族群一路狂飆到 524，是這場的「優勢種」；但第 5 回崩潰，連牠也從 524 掉到 312。</p>
+    </div>
+
+    <div class="card">
+      <span class="card__tag">版型 A3</span>
+      <h2>🗺️ 四大棲地小卡（每塊地一張）</h2>
+      <p class="card__meta">把畫面拆成 4 張小圖，<b>每張看一塊棲地裡住了哪些族群、怎麼變</b>。適合討論「這塊地被誰佔據了」。</p>
+      <div id="a3-legend" class="legend"></div>
+      <div id="a3" class="smallmult"></div>
+      <p class="insight">🏙️ 都會公園第 4 回最擠（477），第 5 回崩潰後剩 140；🌳 淺山森林則被棕色族群越佔越多。</p>
+    </div>
+
+    <div class="card">
+      <span class="card__tag">版型 A4</span>
+      <h2>🌡️ 棲地擁擠度熱力圖</h2>
+      <p class="card__meta">格子顏色＝<b>住了多少 ÷ 這塊地能住的上限</b>。越紅＝越爆滿（超過 100% 就是超載），越綠＝越空。一眼看出「哪裡擠爆了」。</p>
+      <div id="a4"></div>
+      <p class="insight insight--warn">🔴 第 4～5 回濕地農田與淺山森林都「超載」（破百），生態壓力最大，也最容易崩。</p>
+    </div>
+
+  </section>
+
+  <!-- ============ 玩家端 ============ -->
+  <section class="section" id="sec-player">
+
+    <div class="picker">
+      <label for="player-select">我是：</label>
+      <select id="player-select"></select>
+      <span class="picker__chip" id="player-chip">族群</span>
+    </div>
+
+    <div class="card">
+      <span class="card__tag card__tag--alt">版型 B1</span>
+      <h2>🌱 我的成長曲線</h2>
+      <p class="card__meta">我的族群總數，從開局到結局怎麼走。山越高＝我這個族群越壯大。</p>
+      <div id="b1"></div>
+      <p class="insight" id="b1-insight"></p>
+    </div>
+
+    <div class="card">
+      <span class="card__tag card__tag--alt">版型 B2</span>
+      <h2>🧩 我的棲地版圖（我住在哪幾塊地）</h2>
+      <p class="card__meta">每一根＝該回合我的族群總數，由 4 塊棲地的顏色疊起來。看我從「只住一塊」到「擴張到好幾塊」。</p>
+      <div id="b2-legend" class="legend"></div>
+      <div id="b2"></div>
+      <p class="insight" id="b2-insight"></p>
+    </div>
+
+    <div class="card">
+      <span class="card__tag card__tag--alt">版型 B3</span>
+      <h2>⚖️ 我 vs 全班</h2>
+      <p class="card__meta">把我的數量，跟<b>同色夥伴平均</b>、<b>全班平均</b>放在一起比。看我是領先還是落後。</p>
+      <div id="b3-legend" class="legend"></div>
+      <div id="b3"></div>
+      <p class="cmp-note" id="b3-note"></p>
+    </div>
+
+    <div class="card">
+      <span class="card__tag card__tag--alt">版型 B4</span>
+      <h2>📖 我的故事時間軸（每回合發生了什麼）</h2>
+      <p class="card__meta">一回合一張卡：<b>人類做了什麼</b> → <b>我的數量怎麼變</b>。把「因」和「果」連起來，最適合帶小朋友討論。</p>
+      <div id="b4" class="story"></div>
+    </div>
+
+  </section>
+
+  <p style="text-align:center; color:var(--ink-soft); font-size:13px; margin-top:30px;">
+    這是預覽頁，圖表全部用真實資料畫成。挑好要的版型後，再決定哪幾張放進老師端／玩家端的結局畫面。
+  </p>
+
+</div>
+
+<script src="data.js"></script>
+<script src="charts.js"></script>
+</body>
+</html>

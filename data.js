@@ -1,0 +1,983 @@
+// 自動產生：由 build-data.js 解析 5/25 匯出資料而來，勿手改
+window.PREVIEW_DATA = {
+  "meta": {
+    "source": "habitat-export-2026-05-25T10-11-16",
+    "generatedAt": "2026-06-04T04:44:06.049Z",
+    "species": [
+      "red",
+      "green",
+      "yellow",
+      "brown",
+      "blue",
+      "purple"
+    ],
+    "habitats": [
+      "wetland",
+      "forest",
+      "urban",
+      "pond"
+    ],
+    "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "players": {
+    "S01": {
+      "player_code": "S01",
+      "species": "red",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 60,
+          "forest": 0,
+          "wetland": 0,
+          "total": 60
+        },
+        "2": {
+          "pond": 0,
+          "urban": 58,
+          "forest": 0,
+          "wetland": 0,
+          "total": 58
+        },
+        "3": {
+          "pond": 10,
+          "urban": 52,
+          "forest": 0,
+          "wetland": 0,
+          "total": 62
+        },
+        "4": {
+          "pond": 0,
+          "urban": 50,
+          "forest": 0,
+          "wetland": 0,
+          "total": 50
+        },
+        "5": {
+          "pond": 20,
+          "urban": 40,
+          "forest": 0,
+          "wetland": 0,
+          "total": 60
+        },
+        "6": {
+          "pond": 34,
+          "urban": 15,
+          "forest": 0,
+          "wetland": 0,
+          "total": 49
+        }
+      }
+    },
+    "S02": {
+      "player_code": "S02",
+      "species": "green",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 50,
+          "forest": 0,
+          "wetland": 0,
+          "total": 50
+        },
+        "2": {
+          "pond": 0,
+          "urban": 50,
+          "forest": 0,
+          "wetland": 0,
+          "total": 50
+        },
+        "3": {
+          "pond": 16,
+          "urban": 89,
+          "forest": 0,
+          "wetland": 8,
+          "total": 113
+        },
+        "4": {
+          "pond": 42,
+          "urban": 85,
+          "forest": 7,
+          "wetland": 104,
+          "total": 238
+        },
+        "5": {
+          "pond": 146,
+          "urban": 49,
+          "forest": 59,
+          "wetland": 66,
+          "total": 320
+        },
+        "6": {
+          "pond": 61,
+          "urban": 21,
+          "forest": 23,
+          "wetland": 28,
+          "total": 133
+        }
+      }
+    },
+    "S03": {
+      "player_code": "S03",
+      "species": "yellow",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 0,
+          "wetland": 40,
+          "total": 40
+        },
+        "2": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 0,
+          "wetland": 29,
+          "total": 29
+        },
+        "3": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 8,
+          "wetland": 24,
+          "total": 32
+        },
+        "4": {
+          "pond": 0,
+          "urban": 8,
+          "forest": 4,
+          "wetland": 46,
+          "total": 58
+        },
+        "5": {
+          "pond": 0,
+          "urban": 27,
+          "forest": 2,
+          "wetland": 35,
+          "total": 64
+        },
+        "6": {
+          "pond": 0,
+          "urban": 13,
+          "forest": 16,
+          "wetland": 27,
+          "total": 56
+        }
+      }
+    },
+    "S04": {
+      "player_code": "S04",
+      "species": "brown",
+      "byRound": {
+        "1": {
+          "pond": 30,
+          "urban": 0,
+          "forest": 0,
+          "wetland": 0,
+          "total": 30
+        },
+        "2": {
+          "pond": 50,
+          "urban": 0,
+          "forest": 24,
+          "wetland": 0,
+          "total": 74
+        },
+        "3": {
+          "pond": 11,
+          "urban": 8,
+          "forest": 128,
+          "wetland": 0,
+          "total": 147
+        },
+        "4": {
+          "pond": 55,
+          "urban": 49,
+          "forest": 100,
+          "wetland": 0,
+          "total": 204
+        },
+        "5": {
+          "pond": 14,
+          "urban": 17,
+          "forest": 171,
+          "wetland": 24,
+          "total": 226
+        },
+        "6": {
+          "pond": 6,
+          "urban": 2,
+          "forest": 158,
+          "wetland": 0,
+          "total": 166
+        }
+      }
+    },
+    "S05": {
+      "player_code": "S05",
+      "species": "blue",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 25,
+          "wetland": 0,
+          "total": 25
+        },
+        "2": {
+          "pond": 12,
+          "urban": 0,
+          "forest": 31,
+          "wetland": 12,
+          "total": 55
+        },
+        "3": {
+          "pond": 9,
+          "urban": 12,
+          "forest": 23,
+          "wetland": 18,
+          "total": 62
+        },
+        "4": {
+          "pond": 6,
+          "urban": 21,
+          "forest": 14,
+          "wetland": 54,
+          "total": 95
+        },
+        "5": {
+          "pond": 4,
+          "urban": 14,
+          "forest": 10,
+          "wetland": 78,
+          "total": 106
+        },
+        "6": {
+          "pond": 2,
+          "urban": 7,
+          "forest": 12,
+          "wetland": 67,
+          "total": 88
+        }
+      }
+    },
+    "S06": {
+      "player_code": "S06",
+      "species": "purple",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 0,
+          "wetland": 35,
+          "total": 35
+        },
+        "2": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 0,
+          "wetland": 83,
+          "total": 83
+        },
+        "3": {
+          "pond": 0,
+          "urban": 10,
+          "forest": 10,
+          "wetland": 68,
+          "total": 88
+        },
+        "4": {
+          "pond": 0,
+          "urban": 47,
+          "forest": 40,
+          "wetland": 53,
+          "total": 140
+        },
+        "5": {
+          "pond": 20,
+          "urban": 16,
+          "forest": 54,
+          "wetland": 51,
+          "total": 141
+        },
+        "6": {
+          "pond": 30,
+          "urban": 0,
+          "forest": 33,
+          "wetland": 38,
+          "total": 101
+        }
+      }
+    },
+    "S07": {
+      "player_code": "S07",
+      "species": "red",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 60,
+          "forest": 0,
+          "wetland": 0,
+          "total": 60
+        },
+        "2": {
+          "pond": 0,
+          "urban": 37,
+          "forest": 0,
+          "wetland": 10,
+          "total": 47
+        },
+        "3": {
+          "pond": 30,
+          "urban": 28,
+          "forest": 10,
+          "wetland": 11,
+          "total": 79
+        },
+        "4": {
+          "pond": 0,
+          "urban": 2,
+          "forest": 57,
+          "wetland": 20,
+          "total": 79
+        },
+        "5": {
+          "pond": 0,
+          "urban": 8,
+          "forest": 24,
+          "wetland": 74,
+          "total": 106
+        },
+        "6": {
+          "pond": 0,
+          "urban": 9,
+          "forest": 23,
+          "wetland": 67,
+          "total": 99
+        }
+      }
+    },
+    "S08": {
+      "player_code": "S08",
+      "species": "green",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 50,
+          "forest": 0,
+          "wetland": 0,
+          "total": 50
+        },
+        "2": {
+          "pond": 0,
+          "urban": 284,
+          "forest": 0,
+          "wetland": 0,
+          "total": 284
+        },
+        "3": {
+          "pond": 32,
+          "urban": 215,
+          "forest": 0,
+          "wetland": 0,
+          "total": 247
+        },
+        "4": {
+          "pond": 20,
+          "urban": 192,
+          "forest": 0,
+          "wetland": 16,
+          "total": 228
+        },
+        "5": {
+          "pond": 36,
+          "urban": 152,
+          "forest": 16,
+          "wetland": 0,
+          "total": 204
+        },
+        "6": {
+          "pond": 119,
+          "urban": 53,
+          "forest": 7,
+          "wetland": 0,
+          "total": 179
+        }
+      }
+    },
+    "S09": {
+      "player_code": "S09",
+      "species": "yellow",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 0,
+          "wetland": 40,
+          "total": 40
+        },
+        "2": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 8,
+          "wetland": 17,
+          "total": 25
+        },
+        "3": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 5,
+          "wetland": 51,
+          "total": 56
+        },
+        "4": {
+          "pond": 0,
+          "urban": 8,
+          "forest": 3,
+          "wetland": 73,
+          "total": 84
+        },
+        "5": {
+          "pond": 0,
+          "urban": 19,
+          "forest": 2,
+          "wetland": 61,
+          "total": 82
+        },
+        "6": {
+          "pond": 0,
+          "urban": 9,
+          "forest": 16,
+          "wetland": 40,
+          "total": 65
+        }
+      }
+    },
+    "S10": {
+      "player_code": "S10",
+      "species": "brown",
+      "byRound": {
+        "1": {
+          "pond": 30,
+          "urban": 0,
+          "forest": 0,
+          "wetland": 0,
+          "total": 30
+        },
+        "2": {
+          "pond": 28,
+          "urban": 0,
+          "forest": 24,
+          "wetland": 0,
+          "total": 52
+        },
+        "3": {
+          "pond": 20,
+          "urban": 8,
+          "forest": 0,
+          "wetland": 21,
+          "total": 49
+        },
+        "4": {
+          "pond": 14,
+          "urban": 5,
+          "forest": 0,
+          "wetland": 14,
+          "total": 33
+        },
+        "5": {
+          "pond": 72,
+          "urban": 3,
+          "forest": 16,
+          "wetland": 1,
+          "total": 92
+        },
+        "6": {
+          "pond": 0,
+          "urban": 2,
+          "forest": 49,
+          "wetland": 0,
+          "total": 51
+        }
+      }
+    },
+    "S11": {
+      "player_code": "S11",
+      "species": "blue",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 25,
+          "wetland": 0,
+          "total": 25
+        },
+        "2": {
+          "pond": 12,
+          "urban": 0,
+          "forest": 31,
+          "wetland": 12,
+          "total": 55
+        },
+        "3": {
+          "pond": 15,
+          "urban": 12,
+          "forest": 35,
+          "wetland": 17,
+          "total": 79
+        },
+        "4": {
+          "pond": 26,
+          "urban": 10,
+          "forest": 14,
+          "wetland": 41,
+          "total": 91
+        },
+        "5": {
+          "pond": 7,
+          "urban": 18,
+          "forest": 20,
+          "wetland": 37,
+          "total": 82
+        },
+        "6": {
+          "pond": 4,
+          "urban": 9,
+          "forest": 16,
+          "wetland": 32,
+          "total": 61
+        }
+      }
+    },
+    "S12": {
+      "player_code": "S12",
+      "species": "purple",
+      "byRound": {
+        "1": {
+          "pond": 0,
+          "urban": 0,
+          "forest": 0,
+          "wetland": 35,
+          "total": 35
+        },
+        "2": {
+          "pond": 0,
+          "urban": 10,
+          "forest": 20,
+          "wetland": 30,
+          "total": 60
+        },
+        "3": {
+          "pond": 10,
+          "urban": 0,
+          "forest": 56,
+          "wetland": 26,
+          "total": 92
+        },
+        "4": {
+          "pond": 7,
+          "urban": 0,
+          "forest": 73,
+          "wetland": 33,
+          "total": 113
+        },
+        "5": {
+          "pond": 5,
+          "urban": 0,
+          "forest": 101,
+          "wetland": 36,
+          "total": 142
+        },
+        "6": {
+          "pond": 2,
+          "urban": 0,
+          "forest": 84,
+          "wetland": 24,
+          "total": 110
+        }
+      }
+    }
+  },
+  "speciesTotalsByRound": {
+    "1": {
+      "red": 120,
+      "green": 100,
+      "yellow": 80,
+      "brown": 60,
+      "blue": 50,
+      "purple": 70
+    },
+    "2": {
+      "red": 105,
+      "green": 334,
+      "yellow": 54,
+      "brown": 126,
+      "blue": 110,
+      "purple": 143
+    },
+    "3": {
+      "red": 141,
+      "green": 360,
+      "yellow": 88,
+      "brown": 196,
+      "blue": 141,
+      "purple": 180
+    },
+    "4": {
+      "red": 129,
+      "green": 466,
+      "yellow": 142,
+      "brown": 237,
+      "blue": 186,
+      "purple": 253
+    },
+    "5": {
+      "red": 166,
+      "green": 524,
+      "yellow": 146,
+      "brown": 318,
+      "blue": 188,
+      "purple": 283
+    },
+    "6": {
+      "red": 148,
+      "green": 312,
+      "yellow": 121,
+      "brown": 217,
+      "blue": 149,
+      "purple": 211
+    }
+  },
+  "habitatTotalsByRound": {
+    "1": {
+      "wetland": 150,
+      "forest": 50,
+      "urban": 220,
+      "pond": 60
+    },
+    "2": {
+      "wetland": 193,
+      "forest": 138,
+      "urban": 439,
+      "pond": 102
+    },
+    "3": {
+      "wetland": 244,
+      "forest": 275,
+      "urban": 434,
+      "pond": 153
+    },
+    "4": {
+      "wetland": 454,
+      "forest": 312,
+      "urban": 477,
+      "pond": 170
+    },
+    "5": {
+      "wetland": 463,
+      "forest": 475,
+      "urban": 363,
+      "pond": 324
+    },
+    "6": {
+      "wetland": 323,
+      "forest": 437,
+      "urban": 140,
+      "pond": 258
+    }
+  },
+  "habitatSpeciesByRound": {
+    "1": {
+      "wetland": {
+        "red": 0,
+        "green": 0,
+        "yellow": 80,
+        "brown": 0,
+        "blue": 0,
+        "purple": 70
+      },
+      "forest": {
+        "red": 0,
+        "green": 0,
+        "yellow": 0,
+        "brown": 0,
+        "blue": 50,
+        "purple": 0
+      },
+      "urban": {
+        "red": 120,
+        "green": 100,
+        "yellow": 0,
+        "brown": 0,
+        "blue": 0,
+        "purple": 0
+      },
+      "pond": {
+        "red": 0,
+        "green": 0,
+        "yellow": 0,
+        "brown": 60,
+        "blue": 0,
+        "purple": 0
+      }
+    },
+    "2": {
+      "wetland": {
+        "red": 10,
+        "green": 0,
+        "yellow": 46,
+        "brown": 0,
+        "blue": 24,
+        "purple": 113
+      },
+      "forest": {
+        "red": 0,
+        "green": 0,
+        "yellow": 8,
+        "brown": 48,
+        "blue": 62,
+        "purple": 20
+      },
+      "urban": {
+        "red": 95,
+        "green": 334,
+        "yellow": 0,
+        "brown": 0,
+        "blue": 0,
+        "purple": 10
+      },
+      "pond": {
+        "red": 0,
+        "green": 0,
+        "yellow": 0,
+        "brown": 78,
+        "blue": 24,
+        "purple": 0
+      }
+    },
+    "3": {
+      "wetland": {
+        "red": 11,
+        "green": 8,
+        "yellow": 75,
+        "brown": 21,
+        "blue": 35,
+        "purple": 94
+      },
+      "forest": {
+        "red": 10,
+        "green": 0,
+        "yellow": 13,
+        "brown": 128,
+        "blue": 58,
+        "purple": 66
+      },
+      "urban": {
+        "red": 80,
+        "green": 304,
+        "yellow": 0,
+        "brown": 16,
+        "blue": 24,
+        "purple": 10
+      },
+      "pond": {
+        "red": 40,
+        "green": 48,
+        "yellow": 0,
+        "brown": 31,
+        "blue": 24,
+        "purple": 10
+      }
+    },
+    "4": {
+      "wetland": {
+        "red": 20,
+        "green": 120,
+        "yellow": 119,
+        "brown": 14,
+        "blue": 95,
+        "purple": 86
+      },
+      "forest": {
+        "red": 57,
+        "green": 7,
+        "yellow": 7,
+        "brown": 100,
+        "blue": 28,
+        "purple": 113
+      },
+      "urban": {
+        "red": 52,
+        "green": 277,
+        "yellow": 16,
+        "brown": 54,
+        "blue": 31,
+        "purple": 47
+      },
+      "pond": {
+        "red": 0,
+        "green": 62,
+        "yellow": 0,
+        "brown": 69,
+        "blue": 32,
+        "purple": 7
+      }
+    },
+    "5": {
+      "wetland": {
+        "red": 74,
+        "green": 66,
+        "yellow": 96,
+        "brown": 25,
+        "blue": 115,
+        "purple": 87
+      },
+      "forest": {
+        "red": 24,
+        "green": 75,
+        "yellow": 4,
+        "brown": 187,
+        "blue": 30,
+        "purple": 155
+      },
+      "urban": {
+        "red": 48,
+        "green": 201,
+        "yellow": 46,
+        "brown": 20,
+        "blue": 32,
+        "purple": 16
+      },
+      "pond": {
+        "red": 20,
+        "green": 182,
+        "yellow": 0,
+        "brown": 86,
+        "blue": 11,
+        "purple": 25
+      }
+    },
+    "6": {
+      "wetland": {
+        "red": 67,
+        "green": 28,
+        "yellow": 67,
+        "brown": 0,
+        "blue": 99,
+        "purple": 62
+      },
+      "forest": {
+        "red": 23,
+        "green": 30,
+        "yellow": 32,
+        "brown": 207,
+        "blue": 28,
+        "purple": 117
+      },
+      "urban": {
+        "red": 24,
+        "green": 74,
+        "yellow": 22,
+        "brown": 4,
+        "blue": 16,
+        "purple": 0
+      },
+      "pond": {
+        "red": 34,
+        "green": 180,
+        "yellow": 0,
+        "brown": 6,
+        "blue": 6,
+        "purple": 32
+      }
+    }
+  },
+  "eventsByRound": {
+    "1": [
+      {
+        "kind": "A",
+        "name": "農藥噴灑",
+        "habitat": "wetland",
+        "event_id": "DEV_FARM_R1",
+        "impact_desc": "濕地農田污染上升 +8%，{yellow} 與 {purple} 族群受農藥衝擊各減少約 10%。"
+      },
+      {
+        "kind": "B",
+        "name": "生態警報",
+        "habitat": "wetland",
+        "event_id": "THR_BROWN_150",
+        "impact_desc": ""
+      }
+    ],
+    "2": [
+      {
+        "kind": "A",
+        "name": "家庭廢水",
+        "habitat": "wetland",
+        "event_id": "DEV_SEWAGE_R2",
+        "impact_desc": "家庭廢水使濕地水質惡化，水生族群 {yellow}{purple}{brown} 約減少 15%。"
+      },
+      {
+        "kind": "B",
+        "name": "農損通報",
+        "habitat": "urban",
+        "event_id": "THR_GREEN_200",
+        "impact_desc": ""
+      }
+    ],
+    "3": [
+      {
+        "kind": "A",
+        "name": "林木砍伐",
+        "habitat": "forest",
+        "event_id": "DEV_LOG_R3",
+        "impact_desc": "淺山森林失去樹冠遮蔽，所有族群棲地品質下降，普遍減少約 20%。"
+      },
+      {
+        "kind": "B",
+        "name": "農損通報",
+        "habitat": "urban",
+        "event_id": "THR_GREEN_200",
+        "impact_desc": ""
+      }
+    ],
+    "4": [
+      {
+        "kind": "B",
+        "name": "蛙類爆發",
+        "habitat": "urban",
+        "event_id": "THR_YELLOW_300",
+        "impact_desc": ""
+      },
+      {
+        "kind": "A",
+        "name": "工廠廢水",
+        "habitat": "wetland",
+        "event_id": "DEV_FACTORY_R4",
+        "impact_desc": "工廠廢水重創水域(污染 +20%)，水生族群 {yellow}{purple}{brown} 大量死亡約 25%。"
+      }
+    ],
+    "5": [
+      {
+        "kind": "A",
+        "name": "生態崩潰",
+        "habitat": "wetland",
+        "event_id": "DEV_COLLAPSE_R5",
+        "impact_desc": "人為開發使生態全面崩潰，各色族群普遍銳減約 35%。"
+      },
+      {
+        "kind": "B",
+        "name": "蛙類爆發",
+        "habitat": "forest",
+        "event_id": "THR_YELLOW_300",
+        "impact_desc": ""
+      }
+    ]
+  }
+};
